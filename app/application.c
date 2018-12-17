@@ -268,6 +268,7 @@ void application_init(void)
     bc_lis2dh12_set_event_handler(&lis2dh12, lis2dh12_event_handler, NULL);
     #endif
 
+    bc_radio_pairing_request("lcd",VERSION);
     bc_scheduler_register(switch_to_normal_mode_task, NULL, SERVICE_INTERVAL_INTERVAL);
 }
 
@@ -298,8 +299,6 @@ void application_task(void)
     bc_module_lcd_draw_string(10, 80, "Outside temp", COLOR_BLACK);
 
     bc_module_lcd_update();
-
-    bc_radio_pairing_request("lcd",VERSION);
 
     // Plan next run this function after 10 minutes
     bc_scheduler_plan_current_from_now(10 * 60000);
