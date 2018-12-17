@@ -121,7 +121,7 @@ void lcd_message_set(uint64_t *id, const char *topic, void *value, void *param);
 // subscribe table, format: topic, expect payload type, callback, user param
 static const bc_radio_sub_t subs[] = {
     // state/set
-    {"barometer/-/interval/set", BC_RADIO_SUB_PT_FLOAT  , lcd_message_set, NULL }
+    {"owar/-/lcd/set", BC_RADIO_SUB_PT_FLOAT  , lcd_message_set, NULL }
 };
 
 void lcd_message_set(uint64_t *id, const char *topic, void *value, void *param)
